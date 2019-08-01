@@ -12,9 +12,9 @@ route.get('/',(req,res,next)=>{
   let newNote;
   let {name, content, folder_id} = req.body;
   if(!folder_id)
-    res.status(404).json({error:'can not insert into invalid folder'});
+    return res.status(404).json({error:'can not insert into invalid folder'});
   if(!name || !content)
-    res.status(400).json({error:' must include both name and content'});
+    return res.status(400).json({error:' must include both name and content'});
   else
     newNote = {name,content,folder_id};
   noteServ.addNewNote(req.app.get('db'),newNote).then((results)=>{
