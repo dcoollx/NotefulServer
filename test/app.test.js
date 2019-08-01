@@ -82,7 +82,7 @@ describe('server responses properly',()=>{
       context('if body is valid',()=>{
         it('returns 201 when adding a note to folder',()=>{
           return request(app)
-            .post('/folders/1')
+            .post('/notes')
             .set({'Content-type':'application/json'})
             .send({name:'testing',content:'this is a test of adding notes',folder_id:1})
             .expect(201);
